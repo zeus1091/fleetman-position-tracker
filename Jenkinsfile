@@ -8,4 +8,7 @@ node {
    stage('Results') {
            archive 'target/*.jar'
    }
+    stage('Deploy'){
+    ansiblePlaybook credentialsId: 'ssh-credential', playbook: 'deploy.yaml'
+    }
 }
